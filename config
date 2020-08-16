@@ -93,7 +93,7 @@ bindsym $mod+Shift+d exec discord-canary
 bindsym $mod+Shift+l exec minecraft-launcher
 bindsym $mod+Shift+n exec simplenote
 bindsym $mod+Shift+i exec gimp
-bindsym $mod+Shift+p exec pcmanfm
+bindsym $mod+Shift+o exec pcmanfm
 
 #***
 bindsym $mod+Shift+Return exec alacritty -e sudo su
