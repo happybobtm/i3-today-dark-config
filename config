@@ -98,21 +98,22 @@ bindsym $mod+Shift+p exec pcmanfm
 #***
 bindsym $mod+Shift+Return exec alacritty -e sudo su
 
-#SYSTEM KEY BINDINGS
-#***
+#CONTROL KEY BINDINGS
+#REMOVE ORPHANS (ARCH LINUX)
 bindsym $mod+Control+o exec alacritty -e sudo pacman -Rns $(pacman -Qtdq)
-#***
-bindsym $mod+Control+r exec alacritty -e systemctl reboot
-#***
-bindsym $mod+Control+p exec alacritty -e systemctl poweroff
-#***
+#update PACMAN (ARCH LINUX) 
 bindsym $mod+Control+u exec alacritty -e sudo pacman -Syu
-#***
+#update YAY (ARCH LINUX)
 bindsym $mod+Control+y exec alacritty -e yay -Syu
-#***
-bindsym $mod+Control+Delete exec alacritty -e bashtop
-#***
+#REBOOT THE COMPUTER (SYSTEMD)
+bindsym $mod+Control+r exec alacritty -e systemctl reboot
+#TURN OFF THE COMPUTER(SYSTEMD)
+bindsym $mod+Control+p exec alacritty -e systemctl poweroff
+#LOG OUT
 bindsym $mod+Control+e exec exit i3
+#TASK MANAGER (BASHTOP)
+bindsym $mod+Control+Delete exec alacritty -e bashtop
+
 
 # MOD KEY (Mod4 = Super/Windows Key | Mod1 = Alt Key)
 set $mod Mod4
