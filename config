@@ -95,7 +95,7 @@ bindsym $mod+Shift+n exec simplenote
 bindsym $mod+Shift+i exec gimp
 bindsym $mod+Shift+p exec pcmanfm
 
-#***
+#ROOT TERMINAL
 bindsym $mod+Shift+Return exec alacritty -e sudo su
 
 #CONTROL KEY BINDINGS
