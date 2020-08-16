@@ -1,0 +1,322 @@
+################################################################################
+#   _____         _               ____                       _                 #
+#  |_   _|__   __| | __ _ _   _  |  _ \ _ __ __ _  ___ _   _| | __ _           #
+#    | |/ _ \ / _` |/ _` | | | | | | | | '__/ _` |/ __| | | | |/ _` |          #
+#    | | (_) | (_| | (_| | |_| | | |_| | | | (_| | (__| |_| | | (_| |          #
+#    |_|\___/ \__,_|\__,_|\__, | |____/|_|  \__,_|\___|\__,_|_|\__,_|          #
+#                         |___/                                                #
+################################################################################
+# A i3/i3-gaps config based on the "Today Dracula" color scheme                #
+################################################################################
+# Config By Today                                                              #
+# Discord Tag: Today 刀#0001                                                   #
+# Discord Server (Portuguese Only):https://discord.gg/qgBezqH                  #
+# Github: https://github.com/happybobtm                                        #
+################################################################################
+
+################################################################################
+#  ____                             _                                          #
+#  |  _ \  ___ _ __   ___ _ __   __| | ___ _ __   ___ ___  ___                 #
+#  | | | |/ _ \ '_ \ / _ \ '_ \ / _` |/ _ \ '_ \ / __/ _ \/ __|                #
+#  | |_| |  __/ |_) |  __/ | | | (_| |  __/ | | | (_|  __/\__ \                #
+#  |____/ \___| .__/ \___|_| |_|\__,_|\___|_| |_|\___\___||___/                #
+#             |_|                                                              #
+################################################################################
+# Depends On:                                                                  #
+################################################################################
+# i3-Gaps/I3-WM (Comment the line with "#" or Remove The Gaps Section in the   #
+#line:)                                                                        #
+# dmenu                                                                        #
+# flameshot (Screen Shot)                                                      #
+# mononoki Nerd Font Mono (Font)                                               #
+# bumblebee-status                                                             # 
+################################################################################
+
+################################################################################
+#  _____           _                                                           #
+# |_   _|__  _ __ (_) ___ ___                                                  #
+#   | |/ _ \| '_ \| |/ __/ __|                                                 #
+#   | | (_) | |_) | | (__\__ \                                                 #
+#   |_|\___/| .__/|_|\___|___/                                                 #
+#           |_|                                                                #
+################################################################################
+# 1 - Programs (Line 42 - Line 61)                                             #
+# 2 - Key Bidings (Line 63 - Line 203)                                         #
+# 3 - Auto-Start (Line 203 - Line 218)                                         #
+# 4 - Bar (Line 222 - Line 249)                                                #
+# 5 - System (Line 252 - Line 290)                                             #
+################################################################################
+
+################################################################################
+#  ____                                                                        #
+# |  _ \ _ __ ___   __ _ _ __ __ _ _ __ ___  ___                               #
+# | |_) | '__/ _ \ / _` | '__/ _` | '_ ` _ \/ __|                              #
+# |  __/| | | (_) | (_| | | | (_| | | | | | \__ \                              #
+# |_|   |_|  \___/ \__, |_|  \__,_|_| |_| |_|___/                              #
+#                  |___/                                                       #
+################################################################################
+# Default programs: (If you don't want to use them modify the config)          #
+################################################################################
+# Firefox (Browser)                                                            #
+# Vscode (Text/Code Editor)                                                    #
+# Spotify (Music Player)                                                       #
+# Alacritty (Terminal)                                                         #
+# Steam (Game Store)                                                           #
+# Lutris (Game Launcher)                                                       #
+# Discord-Canary (Online Chat)                                                 #
+# Pcmanfm (File Manager)                                                       #
+# Minecraft Launcher (Game)                                                    #
+# Simplenote (Open-Source Notes Creator/Editor)                                #
+# Gimp (Image Editor)                                                          #
+################################################################################
+
+################################################################################
+#  _   __           ____  _           _ _                                      #
+# | |/ /___ _   _  | __ )(_)_ __   __| (_)_ __   __ _ ___                      #
+# | ' // _ \ | | | |  _ \| | '_ \ / _` | | '_ \ / _` / __|                     #
+# | . \  __/ |_| | | |_) | | | | | (_| | | | | | (_| \__ \                     #
+# |_|\_\___|\__, | |____/|_|_| |_|\__,_|_|_| |_|\__, |___/                     #
+#           |___/                               |___/                          #
+################################################################################
+# About: Key Bindings (Open Terminal, Programs etc...)                         #
+# Obs: (Mouse Bindings are also included)                                      #
+################################################################################
+
+#PROGRAMS
+bindsym $mod+Shift+g exec lutris
+bindsym $mod+Shift+s exec steam
+bindsym $mod+Shift+v exec code
+bindsym $mod+Shift+b exec brave
+bindsym $mod+Shift+f exec firefox
+bindsym $mod+Shift+m exec spotify
+bindsym $mod+Shift+d exec discord-canary
+bindsym $mod+Shift+l exec minecraft-launcher
+bindsym $mod+Shift+n exec simplenote
+bindsym $mod+Shift+i exec gimp
+bindsym $mod+Shift+p exec pcmanfm
+
+#***
+bindsym $mod+Shift+Return exec alacritty -e sudo su
+
+#SYSTEM KEY BINDINGS
+#***
+bindsym $mod+Control+o exec alacritty -e sudo pacman -Rns $(pacman -Qtdq)
+#***
+bindsym $mod+Control+r exec alacritty -e systemctl reboot
+#***
+bindsym $mod+Control+p exec alacritty -e systemctl poweroff
+#***
+bindsym $mod+Control+u exec alacritty -e sudo pacman -Syu
+#***
+bindsym $mod+Control+y exec alacritty -e yay -Syu
+#***
+bindsym $mod+Control+Delete exec alacritty -e bashtop
+#***
+bindsym $mod+Control+e exec exit i3
+
+# MOD KEY (Mod4 = Super/Windows Key | Mod1 = Alt Key)
+set $mod Mod4
+
+# VOLUME ADJUST
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# TERMINAL
+bindsym $mod+Return exec alacritty
+
+# FLOATING MODIFIER
+floating_modifier $mod
+
+# KILL THE ACTIVE WINDOW
+bindsym $mod+Shift+q kill
+
+#FLAMESHOT (SCREENSHOT)
+bindsym Print exec flameshot gui
+
+#DMENU
+bindsym $mod+d exec "dmenu_run -nf '#BD93F9' -nb '#282A36' -sb '#BD93F9' -sf '#282A36' -fn 'mononoki Nerd Font Mono-15' -p 'Run'
+
+# CHANGE FOCOUS
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# MOVE WINDOW
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# SPLIT HORIZONTAL
+bindsym $mod+h split h
+
+# SPLIT VERTICAL
+bindsym $mod+v split v
+
+# FULLSCREEN
+bindsym $mod+f fullscreen toggle
+
+# LAYOUTS
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# TOGGLE FLOATING
+bindsym $mod+Shift+space floating toggle
+
+# CHANGE FOCOUS (TILING/FLOATING)
+bindsym $mod+space focus mode_toggle
+
+# WORKSPACE SWITCH
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# MOVE TO WORSPACE
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# RELOAD CONFIG
+bindsym $mod+Shift+c reload
+
+# RESTART I3
+bindsym $mod+Shift+r restart
+
+#RESIZE WINDOW
+mode "resize" {
+
+        #RESIZE BINDINGS
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # EXIT RESIZE MODE
+        bindsym $mod+r mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+Return mode "default"
+}
+
+#ENTER IN RESIZE MODE
+bindsym $mod+r mode "resize"
+
+################################################################################
+#     _         _                  ____  _             _                       #
+#    / \  _   _| |_ ___           / ___|| |_ __ _ _ __| |_                     #
+#   / _ \| | | | __/ _ \   _____  \___ \| __/ _` | '__| __|                    #
+#  / ___ \ |_| | || (_) | |_____|  ___) | || (_| | |  | |_                     #
+# /_/   \_\__,_|\__\___/          |____/ \__\__,_|_|   \__|                    #
+################################################################################
+# About: Services that start when you login (Network, Print Screen, Audio)     #
+################################################################################
+
+#PICOM
+exec_always picom
+
+# APPLETS
+exec --no-startup-id nm-applet
+
+# WALLPAPER
+exec_always feh --bg-scale /home/today/documents/wallpaper.png
+
+################################################################################
+#  ____                                                                        #
+# | __ )  __ _ _ __                                                            #
+# |  _ \ / _` | '__|                                                           #
+# | |_) | (_| | |                                                              #
+# |____/ \__,_|_|                                                              #
+################################################################################
+# About: Bar Settings: (Color, Elements etc...)                                #
+################################################################################
+
+bar {
+
+  position top
+
+  font pango:mononoki Nerd Font 13
+
+  status_command /home/today/.config/bumblebee-status/bumblebee-status \
+  -t dracula-powerline \
+  -m arch-update time date weather playerctl  memory hostname 
+  tray_output none
+
+  colors {
+    background #282A36
+    statusline #BD93F9
+    separator  #44475A
+
+    focused_workspace  #BD93F9 #BD93F9 #282A36 #BD93F9   #BD93F9
+    active_workspace   #BD93F9 #BD93F9 #282A36 #BD93F9   #BD93F9
+    inactive_workspace #282A36 #282A36 #BD93F9 #282A36   #282A36
+    urgent_workspace   #FF5555 #FF5555 #282A36 #FF5555   #FF5555
+    binding_mode       #FF5555 #FF5555 #282A36 #FF5555   #FF5555
+  }
+}
+
+################################################################################
+#   ___            _                                                           #
+# / ___| _   _ ___| |_ ___ _ __ ___                                            #
+# \___ \| | | / __| __/ _ \ '_ ` _ \                                           #
+#  __) |  |_| \__ \ ||  __/ | | | | |                                          #
+# |____/ \__, |___/\__\___|_| |_| |_|                                          #
+#        |___/                                                                 #
+################################################################################
+# About: System Settings (Font, Workspaces etc...)                             #
+################################################################################
+
+# class                 border  bground text    indicator child_border
+client.focused          #BD93F9 #BD93F9 #282A36 #BD93F9   #BD93F9
+client.focused_inactive #282A36 #282A36 #BD93F9 #282A36   #282A36
+client.unfocused        #282A36 #282A36 #BD93F9 #282A36   #282A36
+client.urgent           #44475A #FF5555 #282A36 #FF5555   #FF5555
+client.placeholder      #282A36 #282A36 #282A36 #282A36   #282A36
+
+client.background       #282A36
+
+new_window 1pixel
+
+#FONT
+font pango:mononoki Nerd Font Mono 10
+
+# WORSPACES SET
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+#GAPS
+gaps inner 10
+
+#################################################################################
+#   ____             __ _         _____           _                             # 
+#  / ___|___  _ __  / _(_) __ _  | ____|_ __   __| |                            #
+# | |   / _ \| '_ \| |_| |/ _` | |  _| | '_ \ / _` |                            #
+# | |__| (_) | | | |  _| | (_| | | |___| | | | (_| |                            #     
+#  \____\___/|_| |_|_| |_|\__, | |_____|_| |_|\__,_|                            #
+#                         |___/                                                 #
+#################################################################################
