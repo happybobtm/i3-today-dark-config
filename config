@@ -114,6 +114,8 @@ bindsym $mod+Control+e exec exit i3
 #TASK MANAGER (BASHTOP)
 bindsym $mod+Control+Delete exec alacritty -e bashtop
 
+#script.sh
+bindsym $mod+Control+M exec alacritty -e sudo ./script.sh
 
 # MOD KEY (Mod4 = Super/Windows Key | Mod1 = Alt Key)
 set $mod Mod4
@@ -257,7 +259,7 @@ bar {
 
   status_command /home/today/.config/bumblebee-status/bumblebee-status \
   -t dracula-powerline \
-  -m arch-update time date weather playerctl  memory hostname 
+  -m arch-update time date weather playerctl  memory kernel
   tray_output none
 
   colors {
