@@ -68,6 +68,8 @@
 # Minecraft Launcher (Game)                                                    #
 # Simplenote (Open-Source Notes Creator/Editor)                                #
 # Gimp (Image Editor)                                                          #
+# Macchanger (MAC address changer)                                             #
+# Bashtop (System e Process Manager)                                           #
 ################################################################################
 
 ################################################################################
@@ -115,7 +117,7 @@ bindsym $mod+Control+e exec exit i3
 bindsym $mod+Control+Delete exec alacritty -e bashtop
 
 #script.sh
-bindsym $mod+Control+M exec alacritty -e sudo ./script.sh
+bindsym $mod+Control+M exec alacritty -e sudo ./mac-address.sh
 
 # MOD KEY (Mod4 = Super/Windows Key | Mod1 = Alt Key)
 set $mod Mod4
@@ -239,7 +241,7 @@ exec_always picom
 exec --no-startup-id nm-applet
 
 # WALLPAPER
-exec_always feh --bg-scale /home/today/documents/wallpaper.png
+exec_always feh --bg-scale /home/today/wallpaper/wallpaper.png
 
 ################################################################################
 #  ____                                                                        #
