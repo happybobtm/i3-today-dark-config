@@ -64,6 +64,7 @@
 # Steam (Game Store)                                                           #
 # Lutris (Game Launcher)                                                       #
 # Discord-Canary (Online Chat)                                                 #
+# Brave-Nightly (chromium based web browser)                                   #
 # Pcmanfm (File Manager)                                                       #
 # Minecraft Launcher (Game)                                                    #
 # Simplenote (Open-Source Notes Creator/Editor)                                #
@@ -88,7 +89,7 @@
 bindsym $mod+Shift+g exec lutris
 bindsym $mod+Shift+s exec steam
 bindsym $mod+Shift+v exec code
-bindsym $mod+Shift+b exec brave
+bindsym $mod+Shift+b exec brave-nightly
 bindsym $mod+Shift+f exec firefox
 bindsym $mod+Shift+m exec spotify
 bindsym $mod+Shift+d exec discord-canary
